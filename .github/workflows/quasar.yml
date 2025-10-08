@@ -1,0 +1,30 @@
+name: Quasar CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: versioncontrol/VersionControl1
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: versioncontrol/VersionControl1/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Quasar app
+        run: npm run build
