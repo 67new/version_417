@@ -25,3 +25,4 @@ See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-
 
 ### git push --force origin master
 # version_417
+# version_417
